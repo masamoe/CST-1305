@@ -1,4 +1,3 @@
-package Assignment1;
 
 public class LinkedList<T> implements SetInterface<T> {
     Node head;

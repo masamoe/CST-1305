@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class CircularList<T> implements SetInterface<T> {
 
     Node head;
@@ -87,19 +89,21 @@ public class CircularList<T> implements SetInterface<T> {
         return array;
     }
 
-    public static void main(String[] args) {
-        CircularList<Integer> myList = new CircularList<Integer>();
-        myList.add(1);
-        myList.add(2);
-        myList.add(3);
-        myList.add(4);
-        myList.add(5);
-        myList.getCurrentSize();
-        myList.isEmpty();
-        myList.remove(3);
-        myList.contains(3);
-        myList.toArray();
-        myList.clear();
-        myList.isEmpty();
+    @Override
+    public Set union(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set intersection(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set difference(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

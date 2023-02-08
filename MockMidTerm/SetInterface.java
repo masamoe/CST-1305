@@ -1,4 +1,4 @@
-package Assignment1;
+import java.util.Set;
 
 /**
  * An interface that describes the operations of a set of
@@ -32,4 +32,10 @@ public interface SetInterface<T> {
     public boolean contains(T anEntry);
 
     public T[] toArray();
+
+    public Set union(Set A, Set B);
+
+    public Set intersection(Set A, Set B);
+
+    public Set difference(Set A, Set B);
 } // end SetInterface

@@ -1,4 +1,4 @@
-package Assignment1;
+import java.util.Set;
 
 public class ArrayList<T> implements SetInterface<T> {
     T[] list;
@@ -88,5 +88,22 @@ public class ArrayList<T> implements SetInterface<T> {
         myList.toArray();
         myList.clear();
         myList.isEmpty();
+    }
+
+    @Override
+    public Set union(Set A, Set B) {
+
+    }
+
+    @Override
+    public Set intersection(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set difference(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

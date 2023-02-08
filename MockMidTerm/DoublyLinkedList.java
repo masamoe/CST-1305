@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class DoublyLinkedList<T> implements SetInterface<T> {
 
     Node head;
@@ -100,5 +102,23 @@ public class DoublyLinkedList<T> implements SetInterface<T> {
         myList.add(5);
         myList.getCurrentSize();
         myList.isEmpty();
+    }
+
+    @Override
+    public Set union(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set intersection(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set difference(Set A, Set B) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
