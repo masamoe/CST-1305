@@ -1,10 +1,10 @@
-public class CircularList<T> implements SetInterface<T> {
+public class DoublyLinkedList<T> implements SetInterface<T> {
 
     Node head;
     Node tail;
     int size;
 
-    public CircularList() {
+    public DoublyLinkedList() {
         head = null;
         tail = null;
         size = 0;
@@ -29,6 +29,7 @@ public class CircularList<T> implements SetInterface<T> {
             tail = newNode;
         } else {
             tail.next = newNode;
+            newNode.previous = tail;
             tail = newNode;
         }
         size++;
@@ -38,18 +39,21 @@ public class CircularList<T> implements SetInterface<T> {
     @Override
     public boolean remove(T anEntry) {
         Node current = head;
-        Node previous = null;
         while (current != null) {
             if (current.data == (int) anEntry) {
-                if (previous == null) {
+                if (current.previous == null) {
                     head = current.next;
                 } else {
-                    previous.next = current.next;
+                    current.previous.next = current.next;
+                }
+                if (current.next == null) {
+                    tail = current.previous;
+                } else {
+                    current.next.previous = current.previous;
                 }
                 size--;
                 return true;
             }
-            previous = current;
             current = current.next;
         }
         return false;
@@ -88,18 +92,13 @@ public class CircularList<T> implements SetInterface<T> {
     }
 
     public static void main(String[] args) {
-        CircularList<Integer> myList = new CircularList<Integer>();
+        DoublyLinkedList<Integer> myList = new DoublyLinkedList<Integer>();
         myList.add(1);
         myList.add(2);
         myList.add(3);
         myList.add(4);
         myList.add(5);
         myList.getCurrentSize();
-        myList.isEmpty();
-        myList.remove(3);
-        myList.contains(3);
-        myList.toArray();
-        myList.clear();
         myList.isEmpty();
     }
 }
