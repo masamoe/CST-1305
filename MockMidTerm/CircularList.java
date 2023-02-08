@@ -89,21 +89,43 @@ public class CircularList<T> implements SetInterface<T> {
         return array;
     }
 
-    @Override
-    public Set union(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public CircularList union(Set A, Set B) {
+        CircularList C = new CircularList();
+        Object[] a = A.toArray();
+        Object[] b = B.toArray();
+        for (int i = 0; i < a.length; i++) {
+            C.add((T) a[i]);
+        }
+        for (int i = 0; i < b.length; i++) {
+            C.add((T) b[i]);
+        }
+        return C;
     }
 
-    @Override
-    public Set intersection(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public CircularList intersection(Set A, Set B) {
+        CircularList C = new CircularList();
+        Object[] a = A.toArray();
+        Object[] b = B.toArray();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] == b[j]) {
+                    C.add((T) a[i]);
+                }
+            }
+        }
+        return C;
     }
 
-    @Override
-    public Set difference(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public CircularList difference(Set A, Set B) {
+        CircularList C = new CircularList();
+        Object[] a = A.toArray();
+        Object[] b = B.toArray();
+        for (int i = 0; i < a.length; i++) {
+            C.add((T) a[i]);
+        }
+        for (int i = 0; i < b.length; i++) {
+            C.remove((T) b[i]);
+        }
+        return C;
     }
 }

@@ -104,21 +104,34 @@ public class DoublyLinkedList<T> implements SetInterface<T> {
         myList.isEmpty();
     }
 
-    @Override
-    public Set union(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public static DoublyLinkedList union(DoublyLinkedList A, DoublyLinkedList B) {
+        DoublyLinkedList C = new DoublyLinkedList();
+        for (Object o : A.toArray()) {
+            C.add(o);
+        }
+        for (Object o : B.toArray()) {
+            C.add(o);
+        }
+        return C;
     }
 
-    @Override
-    public Set intersection(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public static DoublyLinkedList intersection(DoublyLinkedList A, DoublyLinkedList B) {
+        DoublyLinkedList C = new DoublyLinkedList();
+        for (Object o : A.toArray()) {
+            if (B.contains(o)) {
+                C.add(o);
+            }
+        }
+        return C;
     }
 
-    @Override
-    public Set difference(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public static DoublyLinkedList difference(DoublyLinkedList A, DoublyLinkedList B) {
+        DoublyLinkedList C = new DoublyLinkedList();
+        for (Object o : A.toArray()) {
+            if (!B.contains(o)) {
+                C.add(o);
+            }
+        }
+        return C;
     }
 }

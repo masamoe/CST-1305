@@ -90,20 +90,36 @@ public class ArrayList<T> implements SetInterface<T> {
         myList.isEmpty();
     }
 
-    @Override
-    public Set union(Set A, Set B) {
-
+    public static ArrayList union(ArrayList A, ArrayList B) {
+        ArrayList union = new ArrayList();
+        for (int i = 0; i < A.size; i++) {
+            union.add(A.list[i]);
+        }
+        for (int i = 0; i < B.size; i++) {
+            if (!union.contains(B.list[i])) {
+                union.add(B.list[i]);
+            }
+        }
+        return union;
     }
 
-    @Override
-    public Set intersection(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public static ArrayList intersection(ArrayList A, ArrayList B) {
+        ArrayList intersection = new ArrayList();
+        for (int i = 0; i < A.size; i++) {
+            if (B.contains(A.list[i])) {
+                intersection.add(A.list[i]);
+            }
+        }
+        return intersection;
     }
 
-    @Override
-    public Set difference(Set A, Set B) {
-        // TODO Auto-generated method stub
-        return null;
+    public static ArrayList difference(ArrayList A, ArrayList B) {
+        ArrayList difference = new ArrayList();
+        for (int i = 0; i < A.size; i++) {
+            if (!B.contains(A.list[i])) {
+                difference.add(A.list[i]);
+            }
+        }
+        return difference;
     }
 }

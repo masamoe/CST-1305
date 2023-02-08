@@ -33,9 +33,4 @@ public interface SetInterface<T> {
 
     public T[] toArray();
 
-    public Set union(Set A, Set B);
-
-    public Set intersection(Set A, Set B);
-
-    public Set difference(Set A, Set B);
 } // end SetInterface
