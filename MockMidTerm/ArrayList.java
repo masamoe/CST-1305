@@ -23,8 +23,13 @@ public class ArrayList<T> implements SetInterface<T> {
 
     @Override
     public boolean add(T newEntry) {
-        if (size == capacity) {
-            return false;
+        if (size >= capacity * .8) {
+            capacity = capacity * 2;
+            T[] newList = (T[]) new Object[capacity];
+            for (int i = 0; i < size; i++) {
+                newList[i] = list[i];
+            }
+            list = newList;
         }
         list[size] = newEntry;
         size++;
