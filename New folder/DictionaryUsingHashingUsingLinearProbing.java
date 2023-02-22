@@ -32,12 +32,12 @@ class DictionaryUsingHashingUsingLinearProbing {
     }
 
     int probe(int index, int key) {
-        int i = 0;
-        while (hashTable[(index + i) % TABLE_SIZE].state == State.OCCUPIED
-                && hashTable[(index + i) % TABLE_SIZE].key != key) {
-            i++;
+        int iter = 0;
+        while (hashTable[(index + iter) % TABLE_SIZE].state == State.OCCUPIED
+                && hashTable[(index + iter) % TABLE_SIZE].key != key) {
+            iter++;
         }
-        return (index + i) % TABLE_SIZE;
+        return (index + iter) % TABLE_SIZE;
     }
 
     void insert(Integer key, String value) {
