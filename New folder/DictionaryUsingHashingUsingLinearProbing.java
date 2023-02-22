@@ -32,37 +32,46 @@ class DictionaryUsingHashingUsingLinearProbing {
     }
 
     int probe(int index, int key) {
-        int iter = 0;
-        while (hashTable[(index + iter) % TABLE_SIZE].state == State.OCCUPIED
-                && hashTable[(index + iter) % TABLE_SIZE].key != key) {
-            iter++;
+        int i = 0;
+        while (hashTable[(index + i) % TABLE_SIZE].state == State.OCCUPIED
+                && hashTable[(index + i) % TABLE_SIZE].key != key) {
+            i++;
         }
-        return (index + iter) % TABLE_SIZE;
+        return (index + i) % TABLE_SIZE;
     }
 
     void insert(Integer key, String value) {
         hashTable[probe(getHashIndex(key), key)].key = key;
         hashTable[probe(getHashIndex(key), key)].value = value;
+        hashTable[probe(getHashIndex(key), key)].state = State.OCCUPIED;
     }
 
     String get(Integer key) {
+        return hashTable[probe(getHashIndex(key), key)].value;
+    }
+
+    void delete(Integer key) {
         int index = getHashIndex(key);
         if (hashTable[index] == null) {
-            return null;
+            return;
         } else {
             while (hashTable[index].key != key) {
                 index = (index + 1) % TABLE_SIZE;
             }
-            return hashTable[index].value;
+            hashTable[index].state = State.DELETED;
         }
     }
 
     public static void main(String[] args) {
         DictionaryUsingHashingUsingLinearProbing aDict = new DictionaryUsingHashingUsingLinearProbing();
-        aDict.insert(29, "apple"); // should be inserted at index 6
-        aDict.insert(32, "banana"); // should be inserted at index 9
-        aDict.insert(58, "cherry"); // should be inserted at index 12
-        aDict.insert(81, "date"); // should be inserted at index 13
-        System.out.println(aDict.get(81)); // should print "date"
+        aDict.insert(29, "value 1"); // should be inserted at index 6
+        aDict.insert(32, "value 2"); // should be inserted at index 9
+        aDict.insert(58, "value 3"); // should be inserted at index 12
+        aDict.insert(81, "value 4"); // should be inserted at index 13
+        aDict.insert(15, "value 5"); // should be inserted at index 15
+        System.out.println(aDict.get(15)); // should print "orange"
+        aDict.delete(15); // should delete the item with key 15
+        aDict.insert(15, "value 6"); // should be inserted at index 15
+        System.out.println(aDict.get(15)); // should print "grapefruit"
     }
 }
