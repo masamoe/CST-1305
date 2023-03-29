@@ -105,10 +105,10 @@ public class HeapSortUsingBubble {
     public static void main(String[] args) {
         HeapSortUsingBubble heapSortUsingBubble = new HeapSortUsingBubble();
         heapSortUsingBubble.insert(81);
-        heapSortUsingBubble.print(); // 98 86 81 13 65 32 29 9 10 44 23 21 17
-        heapSortUsingBubble.remove(); // remove 98
-        heapSortUsingBubble.print(); // 86 65 81 13 44 32 29 9 10 17 23 21
+        heapSortUsingBubble.print();
+        heapSortUsingBubble.remove();
+        heapSortUsingBubble.print();
         heapSortUsingBubble.heapSort();
-        heapSortUsingBubble.print(); // 9 10 13 17 21 23 29 32 44 65 81 86
+        heapSortUsingBubble.print();
     }
 }
